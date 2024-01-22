@@ -9,28 +9,37 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   height: 80px;
   font-size: 20px;
-  /* background-color: lightblue; */
 `;
 export const HeaderContents = styled.div`
   display: flex;
-  /* gap: 30px; */
   justify-content: center;
   align-items: center;
   width: 95%;
   height: 100%;
-  /* background-color: pink; */
 `;
 export const NavWrapper = styled.nav`
   width: 60%;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  /* transform: translate(-140px, 0); */
   margin-right: 140px;
-  /* background-color: lightgreen; */
 `;
 export const NavContents = styled.ul`
   display: flex;
   justify-content: flex-end;
   gap: 30px;
+
+  @media (max-width: 1060px) {
+    display: none;
+  }
+`;
+export const HeaderLoginBtn = styled.div`
+  @media (max-width: 1060px) {
+    display: none;
+  }
+`;
+export const HeaderMenuImg = styled.img`
+  @media (min-width: 1060px) {
+    display: none;
+  }
 `;
