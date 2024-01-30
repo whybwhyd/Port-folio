@@ -1,3 +1,4 @@
+import React from 'react';
 import * as St from './style';
 import gihubMark from '../../../assets/githubMark.png';
 import velogLogo from '../../../assets/velogLogo.png';
