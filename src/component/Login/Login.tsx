@@ -68,7 +68,7 @@ const Login = (props: LoginTypes) => {
                   <input
                     type="checkbox"
                     onChange={checkOnChange}
-                    value={checked}
+                    checked={checked}
                   />
                   <span>아이디 기억하기</span>
                 </St.RememberId>
