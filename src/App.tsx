@@ -1,11 +1,14 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
+import { OverlayProvider } from './recoil/modalState';
 import Router from 'shared/Router';
 
 function App() {
   return (
     <RecoilRoot>
-      <Router />
+      <OverlayProvider>
+        <Router />
+      </OverlayProvider>
     </RecoilRoot>
   );
 }

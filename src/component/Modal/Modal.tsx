@@ -1,44 +1,59 @@
-import SignUp from 'component/SignUp/SignUp';
-import Login from 'component/Login/Login';
-import * as St from './style';
-import React, { useState } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import React from 'react';
+import * as St from './wstyle';
+import { values } from '../../recoil/modalState';
 
-interface ModalTypes {
-  setIsModalOpen: (value: React.SetStateAction<boolean>) => void;
+interface Props {
+  children: ReactNode;
+  name: string;
+  position: 'left' | 'center' | 'right';
 }
 
-const Modal = (props: ModalTypes) => {
-  const { setIsModalOpen } = props;
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const [showComponent, setShowComponent] = useState(false);
+type CloseModal = (event: MouseEvent<HTMLDivElement>) => void;
 
-  return (
-    <div>
-      <St.ModalBackground>
-        <St.ModalWrapper>
-          <div>
-            <St.ShutDownBtn onClick={closeModal}>x</St.ShutDownBtn>
-          </div>
-          <div>
-            {showComponent && (
-              <SignUp
-                showComponent={showComponent}
-                setShowComponent={setShowComponent}
-              />
-            )}
-            {!showComponent && (
-              <Login
-                showComponent={showComponent}
-                setShowComponent={setShowComponent}
-              />
-            )}
-          </div>
-        </St.ModalWrapper>
-      </St.ModalBackground>
-    </div>
-  );
+const Modal = ({ children, name, position }: Props) => {
+  const { unmount } = values();
+
+  const handleClose: CloseModal = (event) => {
+    const { target, currentTarget } = event;
+
+    if (target !== currentTarget) return;
+
+    unmount(name);
+  };
+
+  let content;
+  switch (position) {
+    case 'center':
+      content = (
+        <St.ModalOuter onClick={handleClose}>
+          <St.ModalInner>{children}</St.ModalInner>
+        </St.ModalOuter>
+      );
+      break;
+    case 'left':
+      content = (
+        <St.LeftModalOuter>
+          <St.LeftModalInner>{children}</St.LeftModalInner>
+        </St.LeftModalOuter>
+      );
+      break;
+    case 'right':
+      content = (
+        <St.RightModalOuter>
+          <St.RightModalInner>{children}</St.RightModalInner>
+        </St.RightModalOuter>
+      );
+      break;
+    default:
+      content = (
+        <St.ModalOuter onClick={handleClose}>
+          <St.ModalInner>{children}</St.ModalInner>
+        </St.ModalOuter>
+      );
+  }
+
+  return <>{content}</>;
 };
 
 export default Modal;

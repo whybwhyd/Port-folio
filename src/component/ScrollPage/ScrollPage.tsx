@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 import { hrefRefsState } from '../../recoil/hrefRefsState';
 import * as St from './style';
+import Portfolio from './Portfolio/Portfolio';
 
 const ScrollPage = () => {
   const outerDivRef = useRef<HTMLDivElement | null>(null);
@@ -56,7 +57,9 @@ const ScrollPage = () => {
   return (
     <St.Outer ref={outerDivRef}>
       <St.Home ref={href1}>Home</St.Home>
-      <St.Portfolio ref={href2}>portfolio</St.Portfolio>
+      <St.Portfolio ref={href2}>
+        <Portfolio />
+      </St.Portfolio>
       <St.AboutMe ref={href3}>about me</St.AboutMe>
       <St.Skills ref={href4}>skills</St.Skills>
       <St.Contact ref={href5}>contact</St.Contact>

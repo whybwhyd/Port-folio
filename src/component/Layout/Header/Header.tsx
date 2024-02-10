@@ -1,12 +1,18 @@
 import * as St from './style';
-import Modal from '../../Modal/Modal';
-import React, { useState } from 'react';
+
+import React from 'react';
+import { useModal } from 'component/Modal/Modal.hooks';
 import { useRecoilState } from 'recoil';
 import { hrefRefsState } from '../../../recoil/hrefRefsState';
 import menu from '../../../assets/menu.png';
+import Login from 'component/Login/Login';
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { mount } = useModal();
+
+  const modalOpen = () => {
+    mount('login', <Login />);
+  };
   const [hrefRefs] = useRecoilState(hrefRefsState);
 
   const clickScrollHome = () => {
@@ -36,18 +42,11 @@ const Header = () => {
             <li onClick={clickScrollAm}>about me</li>
             <li onClick={clickScrollSk}>skills</li>
             <li onClick={clickScrollCt}>contact</li>
+            <li>이비</li>
           </St.NavContents>
         </St.NavWrapper>
-        <St.HeaderLoginBtn onClick={() => setIsModalOpen(true)}>
-          Login
-        </St.HeaderLoginBtn>
+        <St.HeaderLoginBtn onClick={modalOpen}>Login</St.HeaderLoginBtn>
         <St.HeaderMenuImg src={menu} alt="메뉴" />
-
-        {isModalOpen && (
-          <div>
-            <Modal setIsModalOpen={setIsModalOpen} />
-          </div>
-        )}
       </St.HeaderContents>
     </St.HeaderWrapper>
   );

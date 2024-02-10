@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import * as St from './style';
-interface LoginTypes {
-  showComponent?: boolean;
-  setShowComponent: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const Login = (props: LoginTypes) => {
-  const { showComponent, setShowComponent } = props;
+// interface LoginTypes {
+//   showComponent?: boolean;
+//   setShowComponent: React.Dispatch<React.SetStateAction<boolean>>;
+// }
+const Login = () => {
+  // const { showComponent, setShowComponent } = props;
 
   const initialValue = { id: '', password: '' };
   const [form, setForm] = useState(initialValue);
@@ -13,7 +13,7 @@ const Login = (props: LoginTypes) => {
   const [checked, setChecked] = useState(false);
 
   const loginToSignUp = () => {
-    setShowComponent(!showComponent);
+    console.log('1');
   };
   const onChange = (e: { target: { name: string; value: unknown } }) => {
     const { name, value } = e.target;
