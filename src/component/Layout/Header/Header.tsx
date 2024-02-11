@@ -42,7 +42,6 @@ const Header = () => {
             <li onClick={clickScrollAm}>about me</li>
             <li onClick={clickScrollSk}>skills</li>
             <li onClick={clickScrollCt}>contact</li>
-            <li>이비</li>
           </St.NavContents>
         </St.NavWrapper>
         <St.HeaderLoginBtn onClick={modalOpen}>Login</St.HeaderLoginBtn>

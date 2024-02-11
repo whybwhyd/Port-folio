@@ -1,5 +1,17 @@
 import { styled } from 'styled-components';
 
+export const ShutDownBtn = styled.button`
+  position: fixed;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #d9d9d9;
+  font-size: 25px;
+  font-weight: bolder;
+  margin: 10px;
+  transform: translate(30%, -70%);
+`;
+
 export const ContentWrapper = styled.div`
   display: grid;
   gap: 30px;

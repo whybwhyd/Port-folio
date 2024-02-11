@@ -1,6 +1,6 @@
 import type { MouseEvent, ReactNode } from 'react';
 import React from 'react';
-import * as St from './wstyle';
+import * as St from './style';
 import { values } from '../../recoil/modalState';
 
 interface Props {

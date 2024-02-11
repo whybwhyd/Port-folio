@@ -1,5 +1,5 @@
-import type { PropsWithChildren, ReactNode } from 'react';
 import React, { Fragment } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 import { atom, useRecoilState, useRecoilCallback } from 'recoil';
 
 export const modalState = atom({

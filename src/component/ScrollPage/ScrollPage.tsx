@@ -27,7 +27,6 @@ const ScrollPage = () => {
           left: 0,
           behavior: 'smooth',
         });
-        console.log(pageHeight * (pageIndex + 1));
       } else {
         outerDivRef?.current?.scrollTo({
           top: pageHeight * (pageIndex - 1),
