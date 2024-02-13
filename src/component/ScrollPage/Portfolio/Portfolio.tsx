@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as St from './style';
 import arrow from '../../../assets/arrow.png';
 import listMenu from '../../../assets/listMenu.png';
+import Dropdown from './Dropdown/Dropdown';
 
 const Portfolio = () => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -14,7 +15,12 @@ const Portfolio = () => {
   };
   return (
     <St.TotalFrame>
-      <St.ListMenu alt="리스트 메뉴" src={listMenu} onClick={listDropDown} />
+      <St.ListMenuFrame>
+        <label onClick={listDropDown}>
+          <St.ListMenu alt="리스트 메뉴" src={listMenu} />
+        </label>
+        {showDropDown && <Dropdown />}
+      </St.ListMenuFrame>
       <St.ListFrame>
         <St.LeftArrow alt="왼쪽 화살표" src={arrow} />
         <St.Scene>

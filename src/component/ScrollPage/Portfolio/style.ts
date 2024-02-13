@@ -12,7 +12,6 @@ export const ListFrame = styled.div`
   align-items: center;
   gap: 30px;
 `;
-
 export const Scene = styled.div`
   width: 750px;
   height: 398px;
@@ -53,9 +52,11 @@ export const RightArrow = styled.img`
   height: 90px;
   transform: scaleX(-1);
 `;
+export const ListMenuFrame = styled.div`
+  margin-left: auto;
+  margin-right: 30px;
+`;
 export const ListMenu = styled.img`
   width: 10px;
   height: 38px;
-  margin-left: auto;
-  margin-right: 30px;
 `;
