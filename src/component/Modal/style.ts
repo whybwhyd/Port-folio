@@ -6,6 +6,15 @@ export const ModalOuter = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: transparent;
+  z-index: 99;
+`;
+export const CenterModalOuter = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #00000082;
   z-index: 99;
 `;
@@ -31,6 +40,18 @@ export const RightModalOuter = styled.div`
 `;
 
 export const ModalInner = styled.div`
+  position: absolute;
+  // top: 30%;
+  // right: 22%;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px;
+  margin: 0 auto;
+  transition: all 2s ease-in;
+  background-color: white;
+  border-radius: 10px;
+`;
+export const CenterModalInner = styled.div`
   position: absolute;
   top: 60%;
   left: 50%;

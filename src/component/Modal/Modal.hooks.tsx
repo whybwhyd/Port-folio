@@ -6,8 +6,20 @@ import { values } from '../../recoil/modalState';
 export const useModal = () => {
   const { mount: _mount, unmount: _unmount } = values();
 
-  type Mount = (name: string, element: ReactNode) => void;
-  const mount: Mount = (name, element) => {
+  type Mount = (
+    name: string,
+    element: ReactNode,
+    customStyle?: React.CSSProperties,
+  ) => void;
+  const mount: Mount = (name, element, customStyle) => {
+    _mount(
+      name,
+      <Modal name={name} customStyle={customStyle} position="normal">
+        {element}
+      </Modal>,
+    );
+  };
+  const centerMount: Mount = (name, element) => {
     _mount(
       name,
       <Modal name={name} position="center">
@@ -37,5 +49,5 @@ export const useModal = () => {
     _unmount(name);
   };
 
-  return { mount, leftMount, rightMount, unmount };
+  return { mount, centerMount, leftMount, rightMount, unmount };
 };

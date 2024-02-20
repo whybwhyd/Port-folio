@@ -8,10 +8,10 @@ import menu from '../../../assets/menu.png';
 import Login from 'component/Login/Login';
 
 const Header = () => {
-  const { mount } = useModal();
+  const { centerMount } = useModal();
 
   const modalOpen = () => {
-    mount('login', <Login />);
+    centerMount('login', <Login />);
   };
   const [hrefRefs] = useRecoilState(hrefRefsState);
 

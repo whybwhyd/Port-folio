@@ -6,12 +6,13 @@ import { values } from '../../recoil/modalState';
 interface Props {
   children: ReactNode;
   name: string;
-  position: 'left' | 'center' | 'right';
+  position: 'left' | 'center' | 'right' | 'normal';
+  customStyle?: React.CSSProperties;
 }
 
 type CloseModal = (event: MouseEvent<HTMLDivElement>) => void;
 
-const Modal = ({ children, name, position }: Props) => {
+const Modal = ({ children, name, position, customStyle }: Props) => {
   const { unmount } = values();
 
   const handleClose: CloseModal = (event) => {
@@ -24,11 +25,18 @@ const Modal = ({ children, name, position }: Props) => {
 
   let content;
   switch (position) {
-    case 'center':
+    case 'normal':
       content = (
         <St.ModalOuter onClick={handleClose}>
-          <St.ModalInner>{children}</St.ModalInner>
+          <St.ModalInner style={customStyle}>{children}</St.ModalInner>
         </St.ModalOuter>
+      );
+      break;
+    case 'center':
+      content = (
+        <St.CenterModalOuter onClick={handleClose}>
+          <St.CenterModalInner>{children}</St.CenterModalInner>
+        </St.CenterModalOuter>
       );
       break;
     case 'left':
