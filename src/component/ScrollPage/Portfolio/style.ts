@@ -4,7 +4,7 @@ export const TotalFrame = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 30px;
 `;
 export const ListFrame = styled.div`
   display: flex;
@@ -53,10 +53,17 @@ export const RightArrow = styled.img`
   transform: scaleX(-1);
 `;
 export const ListMenuFrame = styled.div`
-  margin-left: auto;
-  margin-right: 30px;
+  margin-left: 900px;
 `;
 export const ListMenu = styled.img`
   width: 10px;
   height: 38px;
+`;
+export const DropdownFrame = styled.div`
+  display: grid;
+  font-size: 20px;
+  background-color: white;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
 `;
