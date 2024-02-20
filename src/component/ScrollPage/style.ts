@@ -23,7 +23,11 @@ export const Home = styled.div`
 `;
 export const Portfolio = styled.div`
   background-color: lightyellow;
-  ${InnerStyle}
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
 `;
 export const AboutMe = styled.div`
   background-color: lightgreen;

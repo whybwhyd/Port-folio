@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
+import { useModal } from 'component/Modal/Modal.hooks';
 import * as St from './style';
-interface LoginTypes {
-  showComponent?: boolean;
-  setShowComponent: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const Login = (props: LoginTypes) => {
-  const { showComponent, setShowComponent } = props;
 
+const Login = () => {
   const initialValue = { id: '', password: '' };
+  const { unmount } = useModal();
   const [form, setForm] = useState(initialValue);
   const { id, password } = form;
   const [checked, setChecked] = useState(false);
 
   const loginToSignUp = () => {
-    setShowComponent(!showComponent);
+    console.log('1');
   };
   const onChange = (e: { target: { name: string; value: unknown } }) => {
     const { name, value } = e.target;
@@ -33,16 +30,13 @@ const Login = (props: LoginTypes) => {
     console.log(id, password);
     setForm(initialValue);
   };
+  const closeModal = () => {
+    unmount('login');
+  };
 
-  //   useEffect(() => {
-  //     if (cookies.rememberText !== undefined) {
-  //       const { id, password } = cookies.rememberText;
-  //       setForm({ id, password });
-  //       setChecked(true);
-  //     }
-  //   }, [cookies.rememberText]);
   return (
     <div>
+      <St.ShutDownBtn onClick={closeModal}>x</St.ShutDownBtn>
       <div>
         <St.ContentWrapper>
           <St.LoginFont>Login</St.LoginFont>
