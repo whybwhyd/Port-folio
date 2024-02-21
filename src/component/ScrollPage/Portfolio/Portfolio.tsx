@@ -4,17 +4,24 @@ import arrow from '../../../assets/arrow.png';
 import listMenu from '../../../assets/listMenu.png';
 import { useModal } from '../../Modal/Modal.hooks';
 import Dropdown from './Dropdown';
+import ConfirmMessage from './ConfirmMessage';
 
 const Portfolio = () => {
-  const { mount } = useModal();
+  const { mount, centerMount } = useModal();
   const [count, setCount] = useState(0);
   const listArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const list = listArray
-    .slice(count, count + 3)
-    .map((item) => <St.Card key={item}>{item}</St.Card>);
+  const listDeleteHandler = () => {
+    centerMount('ConfirmMessage', <ConfirmMessage />);
+  };
+  const list = listArray.slice(count, count + 3).map((item) => (
+    <St.Card key={item}>
+      <>{item}</>
+      <St.CardDelete onClick={listDeleteHandler}>X</St.CardDelete>
+    </St.Card>
+  ));
 
   const listDropDown = () => {
-    const customStyle = { top: '30%', right: '22%' };
+    const customStyle = { top: '29.5%', right: '21.5%' };
     mount('Dropdown', <Dropdown />, customStyle);
   };
 
@@ -40,11 +47,8 @@ const Portfolio = () => {
   };
   return (
     <St.TotalFrame>
-      <St.ListMenuFrame>
-        <label onClick={listDropDown}>
-          <St.ListMenu alt="리스트 메뉴" src={listMenu} />
-        </label>
-        {/* <div id="Dropdown" /> */}
+      <St.ListMenuFrame onClick={listDropDown}>
+        <St.ListMenu alt="리스트 메뉴" src={listMenu} />
       </St.ListMenuFrame>
       <St.ListFrame>
         <St.LeftArrow

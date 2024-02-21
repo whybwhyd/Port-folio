@@ -41,8 +41,6 @@ export const RightModalOuter = styled.div`
 
 export const ModalInner = styled.div`
   position: absolute;
-  // top: 30%;
-  // right: 22%;
   width: fit-content;
   height: fit-content;
   padding: 8px;
@@ -53,7 +51,7 @@ export const ModalInner = styled.div`
 `;
 export const CenterModalInner = styled.div`
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   width: fit-content;
   height: fit-content;
