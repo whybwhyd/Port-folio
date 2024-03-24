@@ -35,7 +35,9 @@ const Modal = ({ children, name, position, customStyle }: Props) => {
     case 'center':
       content = (
         <St.CenterModalOuter onClick={handleClose}>
-          <St.CenterModalInner>{children}</St.CenterModalInner>
+          <St.CenterModalInner style={customStyle}>
+            {children}
+          </St.CenterModalInner>
         </St.CenterModalOuter>
       );
       break;

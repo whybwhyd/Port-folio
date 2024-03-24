@@ -19,10 +19,10 @@ export const useModal = () => {
       </Modal>,
     );
   };
-  const centerMount: Mount = (name, element) => {
+  const centerMount: Mount = (name, element, customStyle) => {
     _mount(
       name,
-      <Modal name={name} position="center">
+      <Modal name={name} customStyle={customStyle} position="center">
         {element}
       </Modal>,
     );

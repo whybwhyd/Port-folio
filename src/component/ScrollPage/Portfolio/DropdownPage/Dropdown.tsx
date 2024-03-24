@@ -1,12 +1,18 @@
 import React from 'react';
-import * as St from './style';
+import * as St from '../style';
+import { useModal } from '../../../Modal/Modal.hooks';
+import AddModalPage from './AddModalPage';
+import UpdateModalPage from './UpdateModalPage';
 
 const Dropdown = () => {
+  const { unmount, centerMount } = useModal();
   const listToAddHandler = () => {
-    console.log(1);
+    unmount('Dropdown');
+    centerMount('AddModalPage', <AddModalPage />);
   };
   const listToUpdateHandler = () => {
-    console.log(1);
+    unmount('Dropdown');
+    centerMount('UpdateModalPage', <UpdateModalPage />);
   };
   // const listToDeleteHandler = () => {
   //   console.log(1);

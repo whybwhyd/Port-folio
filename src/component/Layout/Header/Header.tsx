@@ -38,10 +38,10 @@ const Header = () => {
 
         <St.NavWrapper>
           <St.NavContents>
-            <li onClick={clickScrollPf}>portfolio</li>
-            <li onClick={clickScrollAm}>about me</li>
-            <li onClick={clickScrollSk}>skills</li>
-            <li onClick={clickScrollCt}>contact</li>
+            <li onClick={clickScrollAm}>About me</li>
+            <li onClick={clickScrollPf}>Portfolio</li>
+            <li onClick={clickScrollSk}>Skills</li>
+            <li onClick={clickScrollCt}>Contact</li>
           </St.NavContents>
         </St.NavWrapper>
         <St.HeaderLoginBtn onClick={modalOpen}>Login</St.HeaderLoginBtn>

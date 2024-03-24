@@ -31,7 +31,10 @@ export const Portfolio = styled.div`
 `;
 export const AboutMe = styled.div`
   background-color: lightgreen;
-  ${InnerStyle}
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const Skills = styled.div`
   background-color: lightblue;

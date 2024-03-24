@@ -3,7 +3,7 @@ import * as St from './style';
 import arrow from '../../../assets/arrow.png';
 import listMenu from '../../../assets/listMenu.png';
 import { useModal } from '../../Modal/Modal.hooks';
-import Dropdown from './Dropdown';
+import Dropdown from './DropdownPage/Dropdown';
 import ConfirmMessage from './ConfirmMessage';
 
 const Portfolio = () => {
@@ -11,7 +11,8 @@ const Portfolio = () => {
   const [count, setCount] = useState(0);
   const listArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const listDeleteHandler = () => {
-    centerMount('ConfirmMessage', <ConfirmMessage />);
+    const customStyle = { borderRadius: '20px' };
+    centerMount('ConfirmMessage', <ConfirmMessage />, customStyle);
   };
   const list = listArray.slice(count, count + 3).map((item) => (
     <St.Card key={item}>

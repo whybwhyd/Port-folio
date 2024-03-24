@@ -3,6 +3,9 @@ import { useRecoilState } from 'recoil';
 import { hrefRefsState } from '../../recoil/hrefRefsState';
 import * as St from './style';
 import Portfolio from './Portfolio/Portfolio';
+import AboutMe from './AboutMe/AboutMe';
+import Skills from './Skills/Skills';
+import Contact from './Contact/Contact';
 
 const ScrollPage = () => {
   const outerDivRef = useRef<HTMLDivElement | null>(null);
@@ -19,29 +22,40 @@ const ScrollPage = () => {
       const { deltaY } = e;
       const { scrollTop } = outerDivRef.current || { scrollTop: 0 };
       const pageHeight = window.innerHeight;
-      const pageIndex = Math.floor(scrollTop / pageHeight);
+      const pageIndex = Math.round(scrollTop / pageHeight);
 
-      if (deltaY > 0) {
+      if (deltaY >= 0) {
         outerDivRef?.current?.scrollTo({
           top: pageHeight * (pageIndex + 1),
           left: 0,
           behavior: 'smooth',
         });
-      } else {
+      } else if (deltaY < 0) {
         outerDivRef?.current?.scrollTo({
           top: pageHeight * (pageIndex - 1),
           left: 0,
           behavior: 'smooth',
         });
       }
+      console.log(
+        'deltaY',
+        deltaY,
+        'pageIndex',
+        pageIndex,
+        'scrollTop',
+        scrollTop,
+        'pageHeight',
+        pageHeight,
+      );
     };
+
     const outerDivRefCurrent = outerDivRef.current;
     outerDivRefCurrent?.addEventListener('wheel', wheelhandler);
+
     return () => {
       outerDivRefCurrent?.removeEventListener('wheel', wheelhandler);
     };
   }, []);
-
   useEffect(() => {
     setHrefRefs({
       ...hrefRefs,
@@ -56,12 +70,18 @@ const ScrollPage = () => {
   return (
     <St.Outer ref={outerDivRef}>
       <St.Home ref={href1}>Home</St.Home>
-      <St.Portfolio ref={href2}>
+      <St.AboutMe ref={href2}>
+        <AboutMe />
+      </St.AboutMe>
+      <St.Portfolio ref={href3}>
         <Portfolio />
       </St.Portfolio>
-      <St.AboutMe ref={href3}>about me</St.AboutMe>
-      <St.Skills ref={href4}>skills</St.Skills>
-      <St.Contact ref={href5}>contact</St.Contact>
+      <St.Skills ref={href4}>
+        <Skills />
+      </St.Skills>
+      <St.Contact ref={href5}>
+        <Contact />
+      </St.Contact>
     </St.Outer>
   );
 };

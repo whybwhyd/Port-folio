@@ -5,6 +5,7 @@ export const TotalFrame = styled.div`
   justify-content: center;
   align-items: center;
   gap: 40px;
+  padding-bottom: 2px;
 `;
 export const ListFrame = styled.div`
   display: flex;
@@ -79,6 +80,9 @@ export const ListMenuFrame = styled.div`
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-radius: 20px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 `;
 export const ListMenu = styled.img`
   width: 10px;
@@ -100,4 +104,44 @@ export const DeleteListButton = styled.button`
   background: transparent;
   border: none;
   font-size: 20px;
+`;
+export const ConfirmMessageGroup = styled.div`
+  padding: 20px;
+  display: grid;
+  justify-items: center;
+  gap: 30px;
+  font-size: 18px;
+`;
+export const MessageButtonGroup = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+export const DeleteButton = styled.button`
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 25px 5px 25px;
+  border-radius: 4px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+export const CancelButton = styled.button`
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 25px 5px 25px;
+  border-radius: 4px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+export const confirmMessageXFrame = styled.div`
+  padding-left: 260px;
+`;
+export const confirmMessageX = styled.button`
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding-bottom: 3px;
+  font-weight: bold;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 `;
